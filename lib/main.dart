@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'Firebase/FireStore.dart';
+import 'Firebase/Firestore_list.dart';
 import 'Screen/HomeScreen.dart';
 
 Future main() async {
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         //home: const Home_Screen(),
-        home: const FireStore(),
+        //home: const FireStore(),
+        home: const ShowData(),
       ),
     );
   }

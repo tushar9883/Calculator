@@ -3,6 +3,8 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 
+import 'FireStore.dart';
+
 class ShowData extends StatefulWidget {
   const ShowData({Key? key}) : super(key: key);
 
@@ -21,27 +23,47 @@ class _ShowDataState extends State<ShowData> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-      child: StreamBuilder(
-          stream: col_ref.snapshots(),
-          builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshort) {
-            if (streamSnapshort.hasData) {
-              return ListView.builder(
-                  itemCount: streamSnapshort.data!.docs.length,
-                  itemBuilder: (context, index) {
-                    final DocumentSnapshot documentSnapshot =
-                        streamSnapshort.data!.docs[index];
-                    return Card(
-                      margin: const EdgeInsets.all(10),
-                      child: ListTile(
-                          title: Text(documentSnapshot['name']),
-                          subtitle: Text(documentSnapshot['mobile'])),
-                    );
-                  });
-            }
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }),
+      child: Column(
+        children: [
+          Expanded(
+            child: StreamBuilder(
+                stream: col_ref.snapshots(),
+                builder:
+                    (context, AsyncSnapshot<QuerySnapshot> streamSnapshort) {
+                  if (streamSnapshort.hasData) {
+                    return ListView.builder(
+                        itemCount: streamSnapshort.data!.docs.length,
+                        itemBuilder: (context, index) {
+                          final DocumentSnapshot documentSnapshot =
+                              streamSnapshort.data!.docs[index];
+                          return Card(
+                            margin: const EdgeInsets.all(10),
+                            child: ListTile(
+                                title: Text(documentSnapshot['name']),
+                                subtitle: Text(documentSnapshot['mobile'])),
+                          );
+                        });
+                  }
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }),
+          ),
+          Container(
+            padding: const EdgeInsets.all(10),
+            margin: const EdgeInsets.only(bottom: 20),
+            child: RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const FireStore()),
+                );
+              },
+              child: Text("Add Data"),
+            ),
+          )
+        ],
+      ),
     ));
   }
 }
