@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "660109712681",
+    "project_id": "list-firestore-data",
+    "storage_bucket": "list-firestore-data.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660109712681:android:ebc30d1836cc03997a6b38",
+        "android_client_info": {
+          "package_name": "com.example.flutter_calculator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660109712681-7lb5d5pahqeg6jolivm1qbp42t5hfll5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLj4CZq2NxdaRsZjB-FO0siKqSPc3UrZk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660109712681-7lb5d5pahqeg6jolivm1qbp42t5hfll5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
