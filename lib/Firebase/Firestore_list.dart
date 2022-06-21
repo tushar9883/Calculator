@@ -13,11 +13,9 @@ class ShowData extends StatefulWidget {
 }
 
 class _ShowDataState extends State<ShowData> {
-  // final databaseRef = FirebaseDatabase.instance.reference().child('user');
-  final col_ref = FirebaseFirestore.instance.collection('user');
-
-  // final Stream<QuerySnapshot> user =
-  // FirebaseFirestore.instance.collection('user').snapshots();
+  final col_ref = FirebaseFirestore.instance
+      .collection('user')
+      .orderBy('date', descending: true);
 
   @override
   Widget build(BuildContext context) {
@@ -49,18 +47,21 @@ class _ShowDataState extends State<ShowData> {
                   );
                 }),
           ),
-          Container(
-            padding: const EdgeInsets.all(10),
-            margin: const EdgeInsets.only(bottom: 20),
-            child: RaisedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const FireStore()),
-                );
-              },
-              child: Text("Add Data"),
-            ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              RaisedButton(
+                highlightColor: Colors.blue,
+                color: Colors.white,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const FireStore()),
+                  );
+                },
+                child: const Text("Add Data"),
+              ),
+            ],
           )
         ],
       ),
