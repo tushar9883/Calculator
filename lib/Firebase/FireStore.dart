@@ -87,11 +87,14 @@ class _FireStoreState extends State<FireStore> {
                     ),
                   ));
                 } else if (regExp.hasMatch(Mobile_Con.text)) {
-                  DateTime now = DateTime.now();
-                  DateTime date = DateTime(
-                      now.year, now.month, now.day, now.hour, now.minute);
-                  print(date);
-                  final datee = date.toString();
+                  // DateTime now = DateTime.now();
+                  // DateTime date = DateTime(
+                  //     now.year, now.month, now.day, now.hour, now.minute);
+                  // print(date);
+                  final _utcTime = DateTime.now().toUtc();
+                  final Localtime = _utcTime.toLocal();
+                  print("..........>>>>>> ${Localtime}");
+                  final datee = Localtime.toString();
                   final name = name_con.text;
                   final mobile = Mobile_Con.text;
                   name_con.clear();

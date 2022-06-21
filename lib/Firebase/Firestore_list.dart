@@ -54,6 +54,10 @@ class _ShowDataState extends State<ShowData> {
                 highlightColor: Colors.blue,
                 color: Colors.white,
                 onPressed: () {
+                  final _utcTime = DateTime.now().toUtc();
+                  final Localtime = _utcTime.toLocal();
+                  print("..........>>>>>> ${Localtime}");
+                  print(".......... ${_utcTime}");
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const FireStore()),
